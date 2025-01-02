@@ -10,13 +10,13 @@ import Foundation
 import AVFoundation
 
 extension LuminaCamera {
-  func getPreviewLayer() -> AVCaptureVideoPreviewLayer? {
+  public func getPreviewLayer() -> AVCaptureVideoPreviewLayer? {
     let previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
     return previewLayer
   }
 
-  func captureStillImage() {
+  public func captureStillImage() {
     LuminaLogger.info(message: "Attempting photo capture")
     var settings = AVCapturePhotoSettings()
     if self.photoOutput.availablePhotoCodecTypes.contains(.hevc) {
@@ -46,7 +46,7 @@ extension LuminaCamera {
     self.photoOutput.capturePhoto(with: settings, delegate: self)
   }
 
-  func startVideoRecording() {
+  public func startVideoRecording() {
     LuminaLogger.notice(message: "attempting to start video recording")
     if self.resolution == .photo {
       LuminaLogger.error(message: "Cannot start video recording - resolution is in .photo mode")
@@ -68,7 +68,7 @@ extension LuminaCamera {
     }
   }
 
-  func stopVideoRecording() {
+  public func stopVideoRecording() {
     LuminaLogger.notice(message: "ending video recording")
     recordingVideo = false
     sessionQueue.async {

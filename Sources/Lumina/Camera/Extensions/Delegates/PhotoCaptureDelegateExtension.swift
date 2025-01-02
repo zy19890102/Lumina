@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 extension LuminaCamera: AVCapturePhotoCaptureDelegate {
-  func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
     LuminaLogger.notice(message: "finished processing photo")
     guard let image = photo.normalizedImage(forCameraPosition: self.position) else {
       return

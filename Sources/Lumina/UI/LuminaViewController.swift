@@ -14,7 +14,7 @@ import Logging
 /// The main class that developers should interact with and instantiate when using Lumina
 open class LuminaViewController: UIViewController {
   internal var logger = Logger(label: "com.okun.Lumina")
-  var camera: LuminaCamera?
+  public var camera: LuminaCamera?
   public var torchState: TorchState {
     get {
       return camera?.torchState ?? .off

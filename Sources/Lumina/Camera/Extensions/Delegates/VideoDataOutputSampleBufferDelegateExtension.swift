@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 extension LuminaCamera: AVCaptureVideoDataOutputSampleBufferDelegate {
-  func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     guard let image = sampleBuffer.normalizedVideoFrame() else {
       return
     }

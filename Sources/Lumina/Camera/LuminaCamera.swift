@@ -51,7 +51,7 @@ public enum TorchState {
   case auto
 }
 
-final class LuminaCamera: NSObject {
+public final class LuminaCamera: NSObject {
   weak var delegate: LuminaCameraDelegate?
 
   var torchState: TorchState = .off {
