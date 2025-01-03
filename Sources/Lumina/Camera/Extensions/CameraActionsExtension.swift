@@ -32,7 +32,7 @@ extension LuminaCamera {
         settings.flashMode = .auto
     }
     if self.captureLivePhotos {
-        let fileName = NSHomeDirectory().appending("livePhoto" + Date().iso8601 + ".mov")
+      let fileName = NSTemporaryDirectory().appending("livePhoto" + Date().iso8601 + ".mov")
       settings.livePhotoMovieFileURL = URL(fileURLWithPath: fileName)
       LuminaLogger.notice(message: "live photo filename will be \(fileName)")
     }
@@ -62,7 +62,7 @@ extension LuminaCamera {
         }
         self.session.commitConfiguration()
       }
-      let fileName = NSHomeDirectory().appending(Date().iso8601 + ".mov")
+      let fileName = NSTemporaryDirectory().appending(Date().iso8601 + ".mov")
       LuminaLogger.notice(message: "will begin video recording with filename \(fileName)")
       self.videoFileOutput.startRecording(to: URL(fileURLWithPath: fileName), recordingDelegate: self)
     }
