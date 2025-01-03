@@ -19,7 +19,7 @@ public protocol LuminaDelegate: AnyObject {
   ///   - livePhotoAt: the URL where the live photo file can be located and used, if enabled and available
   ///   - depthData: the depth data associated with the captured still image, if enabled and available
   ///   - controller: the instance of Lumina that captured the still image
-  func captured(stillImage: UIImage, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController)
+  func captured(stillImage: UIImage, stillImageData: Data, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController)
 
   /// Triggered whenever a video is captured by the user of Lumina
   ///
@@ -81,7 +81,7 @@ public protocol LuminaDelegate: AnyObject {
 // MARK: Extension to make delegate functions optional
 
 public extension LuminaDelegate {
-  func captured(stillImage: UIImage, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController) {}
+  func captured(stillImage: UIImage, stillImageData: Data, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController) {}
   func captured(videoAt: URL, from controller: LuminaViewController) {}
   func streamed(videoFrame: UIImage, from controller: LuminaViewController) {}
   func streamed(videoFrame: UIImage, with predictions: [LuminaRecognitionResult]?, from controller: LuminaViewController) {}

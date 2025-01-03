@@ -24,9 +24,9 @@ extension LuminaViewController: LuminaCameraDelegate {
     }
   }
 
-  func stillImageCaptured(camera: LuminaCamera, image: UIImage, livePhotoURL: URL?, depthData: Any?) {
+  func stillImageCaptured(camera: LuminaCamera, image: UIImage, imageData: Data, livePhotoURL: URL?, depthData: Any?) {
     camera.currentPhotoCollection = nil
-    delegate?.captured(stillImage: image, livePhotoAt: livePhotoURL, depthData: depthData, from: self)
+      delegate?.captured(stillImage: image, stillImageData: imageData, livePhotoAt: livePhotoURL, depthData: depthData, from: self)
   }
 
   func videoFrameCaptured(camera: LuminaCamera, frame: UIImage) {
