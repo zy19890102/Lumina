@@ -56,7 +56,7 @@ extension LuminaCamera {
     sessionQueue.async {
       if let connection = self.videoFileOutput.connection(with: AVMediaType.video), let videoConnection = self.videoDataOutput.connection(with: AVMediaType.video) {
         connection.videoOrientation = videoConnection.videoOrientation
-        connection.isVideoMirrored = self.position == .front ? true : false
+        connection.isVideoMirrored = (self.position == .front && self.shouldFlipFrontCameraImage) ? true : false
         if connection.isVideoStabilizationSupported {
           connection.preferredVideoStabilizationMode = .cinematic
         }
