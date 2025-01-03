@@ -231,7 +231,7 @@ open class LuminaViewController: UIViewController {
   }
     
   public func setTextPromptView(visible: Bool) {
-      textPromptView.isHidden = !visible
+    textPromptView.isHidden = !visible
   }
   
   public func pauseCamera() {
