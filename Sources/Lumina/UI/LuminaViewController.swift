@@ -229,7 +229,11 @@ open class LuminaViewController: UIViewController {
   public func setTorchButton(visible: Bool) {
     torchButton.isHidden = !visible
   }
-
+    
+  public func setTextPromptView(visible: Bool) {
+      textPromptView.isHidden = !visible
+  }
+  
   public func pauseCamera() {
     self.camera?.stop()
   }
