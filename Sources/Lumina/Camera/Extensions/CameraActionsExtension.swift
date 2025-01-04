@@ -10,10 +10,6 @@ import Foundation
 import AVFoundation
 
 extension LuminaCamera {
-  public func shouldFlipFrontCameraImage(flip: Bool) {
-    shouldFlipFrontCameraImage = flip
-  }
-    
   public func getPreviewLayer() -> AVCaptureVideoPreviewLayer? {
     let previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
