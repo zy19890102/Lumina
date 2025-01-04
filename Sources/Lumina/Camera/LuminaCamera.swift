@@ -133,8 +133,6 @@ public final class LuminaCamera: NSObject {
   }
 
   var recordingVideo: Bool = false
-    
-  var shouldFlipFrontCameraImage: Bool = false
 
   var position: CameraPosition = .back {
     didSet {
