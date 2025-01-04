@@ -17,12 +17,6 @@ struct LuminaPhotoCapture {
       collectionUpdated()
     }
   }
-    
-  var stillImageData: Data? {
-     didSet {
-       collectionUpdated()
-     }
-  }
 
   var livePhotoURL: URL? {
     didSet {
@@ -47,7 +41,7 @@ struct LuminaPhotoCapture {
     LuminaLogger.notice(message: "photo capture struct updating")
     var sendingLivePhotoURL: URL?
     var sendingDepthData: Any?
-    guard let sendingCamera = camera, let image = stillImage, let imageData = stillImageData else {
+    guard let sendingCamera = camera, let image = stillImage else {
       return
     }
     if sendingCamera.captureLivePhotos == true {
@@ -69,7 +63,7 @@ struct LuminaPhotoCapture {
     }
     DispatchQueue.main.async {
       LuminaLogger.info(message: "still image has been captured")
-        sendingCamera.delegate?.stillImageCaptured(camera: sendingCamera, image: image, imageData: imageData, livePhotoURL: sendingLivePhotoURL, depthData: sendingDepthData)
+      sendingCamera.delegate?.stillImageCaptured(camera: sendingCamera, image: image, livePhotoURL: sendingLivePhotoURL, depthData: sendingDepthData)
     }
   }
 }

@@ -124,7 +124,7 @@ extension ViewController: LuminaDelegate {
     controller.textPrompt = resultString
   }
 
-  func captured(stillImage: UIImage, stillImageData: Data, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController) {
+  func captured(stillImage: UIImage, livePhotoAt: URL?, depthData: Any?, from controller: LuminaViewController) {
     controller.dismiss(animated: true) {
       self.performSegue(withIdentifier: "stillImageOutputSegue", sender: ["stillImage": stillImage, "livePhotoURL": livePhotoAt as Any, "depthData": depthData as Any, "isPhotoSelfie": controller.position == .front ? true : false])
     }

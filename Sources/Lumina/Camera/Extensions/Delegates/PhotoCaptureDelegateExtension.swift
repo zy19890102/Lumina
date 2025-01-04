@@ -12,7 +12,7 @@ import AVFoundation
 extension LuminaCamera: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
     LuminaLogger.notice(message: "finished processing photo")
-        guard let imageData = photo.fileDataRepresentation(), let image = photo.normalizedImage(forCameraPosition: self.position) else {
+    guard let image = photo.normalizedImage(forCameraPosition: self.position) else {
       return
     }
     photoCollectionQueue.sync {
@@ -21,7 +21,6 @@ extension LuminaCamera: AVCapturePhotoCaptureDelegate {
         collection.camera = self
         collection.depthData = photo.depthData
         collection.stillImage = image
-        collection.stillImageData = imageData
         self.currentPhotoCollection = collection
       } else {
         guard var collection = self.currentPhotoCollection else {
@@ -30,7 +29,6 @@ extension LuminaCamera: AVCapturePhotoCaptureDelegate {
         collection.camera = self
         collection.depthData = photo.depthData
         collection.stillImage = image
-        collection.stillImageData = imageData
         self.currentPhotoCollection = collection
       }
     }

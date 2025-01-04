@@ -11,7 +11,7 @@ import AVFoundation
 import CoreML
 
 protocol LuminaCameraDelegate: AnyObject {
-  func stillImageCaptured(camera: LuminaCamera, image: UIImage, imageData: Data, livePhotoURL: URL?, depthData: Any?)
+  func stillImageCaptured(camera: LuminaCamera, image: UIImage, livePhotoURL: URL?, depthData: Any?)
   func videoFrameCaptured(camera: LuminaCamera, frame: UIImage)
   func videoFrameCaptured(camera: LuminaCamera, frame: UIImage, predictedObjects: [LuminaRecognitionResult]?)
   func depthDataCaptured(camera: LuminaCamera, depthData: Any)
