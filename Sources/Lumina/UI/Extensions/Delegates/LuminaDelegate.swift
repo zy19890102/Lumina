@@ -34,7 +34,7 @@ public protocol LuminaDelegate: AnyObject {
   /// - Parameters:
   ///   - videoFrame: the frame captured by Lumina
   ///   - controller: the instance of Lumina that is streaming the frames
-  func streamed(videoFrame: UIImage, from controller: LuminaViewController)
+  func streamed(videoFrame: UIImage, from controller: LuminaViewController, brightnessValue: CGFloat)
 
   /// Triggered whenever a collection of CoreML models is given to Lumina, and Lumina streams a video frame alongside a collection of predictions
   ///
