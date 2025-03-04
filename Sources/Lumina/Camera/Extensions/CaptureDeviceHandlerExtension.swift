@@ -85,7 +85,11 @@ extension LuminaCamera {
                         
         // 限制输入值在合法范围内
         let clampedValue = max(min(self.exposureTargetBias, maxEV), minEV)
-        self.currentCaptureDevice?.setExposureTargetBias(clampedValue)
+        do {
+            try currentCaptureDevice.lockForConfiguration()
+            self.currentCaptureDevice?.setExposureTargetBias(clampedValue)
+            currentCaptureDevice.unlockForConfiguration()
+        } catch {}
     }
     
     func configureFrameRate() {
