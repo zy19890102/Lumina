@@ -160,19 +160,9 @@ public final class LuminaCamera: NSObject {
         }
     }
     
-    var exposureTargetBias: Float? {
-        set {
-            guard let currentCaptureDevice = self.currentCaptureDevice else { return }
-            // 获取有效 EV 范围
-            let minEV = currentCaptureDevice.minExposureTargetBias
-            let maxEV = currentCaptureDevice.maxExposureTargetBias
-                            
-            // 限制输入值在合法范围内
-            let clampedValue = max(min(newValue ?? 0, maxEV), minEV)
-            self.currentCaptureDevice?.setExposureTargetBias(newValue ?? 0)
-        }
-        get {
-            self.currentCaptureDevice?.exposureTargetBias
+    var exposureTargetBias: Float = 0.0 {
+        didSet {
+            restartVideo()
         }
     }
     
