@@ -213,12 +213,12 @@ open class LuminaViewController: UIViewController {
         }
     }
     
-    open var exposureTargetBias: Float? {
+    open var exposureTargetBias: Float {
         set {
             self.camera?.exposureTargetBias = newValue
         }
         get {
-            self.camera?.exposureTargetBias
+            self.camera?.exposureTargetBias ?? 0
         }
     }
     
