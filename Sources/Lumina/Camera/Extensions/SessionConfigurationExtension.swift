@@ -115,7 +115,6 @@ extension LuminaCamera {
         guard let videoInput = self.getNewVideoInputDevice() else {
             return .invalidVideoInput
         }
-        configExposureTargetBias()
         if let failureResult = checkSessionValidity(for: videoInput) {
             return failureResult
         }
@@ -137,6 +136,7 @@ extension LuminaCamera {
         configureLivePhotoOutput(for: self.session)
         configureDepthDataOutput(for: self.session)
         configureFrameRate()
+        configExposureTargetBias()
         return .videoSuccess
     }
     
